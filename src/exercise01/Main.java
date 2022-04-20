@@ -1,5 +1,6 @@
 package exercise01;
 import java.util.Scanner;
+import java.lang.Math;
 import java.util.List;
 import java.util.*;
 public class Main {
@@ -9,6 +10,11 @@ public class Main {
 		int total = 0;
 		float aritme;
 		float limiter;
+		
+		//apparently, for the POW function to work, it has to receive double numbers
+		double doubleTotal = 1;
+		double doubleLimiter = 0;
+		
 		System.out.println("Digite a quantidade de números que serão trabalhados: ");
 		
 		// escaneando o tamanho do vetor desejado pelo usuario
@@ -29,9 +35,12 @@ public class Main {
 			selectNumber = number.nextInt();
 			vetor[i] = selectNumber;
 			total = selectNumber + total;
+			doubleTotal = selectNumber * doubleTotal;
 		}
 		//calculando média aritmética
 		aritme = (total / limiter);
+		
+
 		
 		//mostrando o vetor
 		for(int i=0; i<= (selectLimit - 1); i++) {
@@ -40,6 +49,13 @@ public class Main {
 		System.out.println(" ");//apenas para pular uma linha depois de mostrar o vetor
 		System.out.println("Total: " + total);//checando o total
 		System.out.println("Média Aritmética : " + aritme);
+		
+		//calculando a média geométrica
+		
+		doubleLimiter = (1 / limiter);
+		double geomed = Math.pow(doubleTotal, doubleLimiter);
+		System.out.format("Média Geométrica: %.2f", geomed);
+		System.out.println(" ");
 		
 		//Mostra apenas pares
 		System.out.println("Vetor de números pares:");
